@@ -1,0 +1,15 @@
+{
+  "name"          : "pstarter",
+  "description"   : "Start http worker process for nodejs",
+  "keywords"      : ["process", "start", "init.d", "http"],
+  "author"        : "Nguyen Van Nhu",
+  "contributors"  : [],
+  "dependencies"  : [],
+  "repository"    : {"type": "git", "url": "git://github.com/vanng822/pstarter.git"},
+  "main"          : "underscore.js",
+  "version"       : "0.1.0",
+  "engines": {
+    "node": ">= 0.8.0"
+  }
+}
+
