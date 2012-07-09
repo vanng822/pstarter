@@ -32,5 +32,5 @@ sudo /etc/init.d/pstarter force-restart
 Run stop (bellow) and start command will be executed
 
 sudo /etc/init.d/pstarter stop
-Old workers exit directly; parent exists
+Old workers exit directly; parent exits
 
