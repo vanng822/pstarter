@@ -19,18 +19,18 @@ pstarter.startMaster(__dirname + '/config/configs.js').startWorker(function() {
 Start with init script on Ubuntu
 You need to create a symbolic link /etc/init.d/pstarter to pstarter/etc/init.d/pstarter and make pstarter executable.
 
-Start workers
 sudo /etc/init.d/pstarter start
+Start workers
 
-Old workers will exit directly and new workers created
 sudo /etc/init.d/pstarter restart
+Old workers will exit directly and new workers created
 
-Old workers will exit graceful one at the time
 sudo /etc/init.d/pstarter graceful
+Old workers will exit graceful one at the time and replaced with a new one
 
-Run stop (bellow) and start command will be executed
 sudo /etc/init.d/pstarter force-restart
+Run stop (bellow) and start command will be executed
 
-Old workers exit directly; parent exists
 sudo /etc/init.d/pstarter stop
+Old workers exit directly; parent exists
 
