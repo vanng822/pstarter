@@ -1,0 +1,17 @@
+Usage example at sibox.isgoodness.com
+
+var pstarter = require('./lib/pstarter.js');
+
+pstarter.startMaster(__dirname + '/config/configs.js').startWorker(function() {
+	var config = require('./config/configs.js');
+
+	var express = require('express');
+	var bootstrap = require('./app/bootstrap.js');
+	var app = express.createServer();
+
+	bootstrap.setupApp(app, __dirname);
+	bootstrap.bootstrap(app);
+	bootstrap.postrun();
+	app.listen(config.http.port, config.http.ip);
+});
+
