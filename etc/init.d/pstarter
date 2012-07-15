@@ -15,8 +15,8 @@ NODEJS=/usr/bin/nodejs
 NODE_ENV=production
 
 cleanup_pid() {
-        cat > $PID_FILE &
-        echo "clean up"
+	cat > $PID_FILE &
+	echo "clean up"
 }
 
 stop_server() {
@@ -31,8 +31,11 @@ stop_server() {
 }
 
 start_server() {
+	PID=$(cat $PID_FILE)
+	if [ "$PID" = "" ]; then
+		echo "Server is running or not clean exit"
+	fi
 	echo "Start node server"
-    cleanup_pid
     cd $NODE_BIN
     $NODEJS $SERVER NODE_ENV=$NODE_ENV PID_FILE=$PID_FILE > /dev/null 2&>1&
     echo "Node server started"
@@ -52,6 +55,10 @@ restart_server() {
 	echo "Restart node server done"
 }
 
+print_help() {
+	echo "Usage: pstarter start | stop | graceful | restart | force-restart "
+}
+
 case "$1" in
 	force-restart)
 		stop_server
@@ -63,16 +70,20 @@ case "$1" in
 		gracefull_server
 		exit 0
 		;;
-        start)
-            start_server
-            exit 0
-             ;;
-        stop)
-        	stop_server
-            exit 0
-             ;;
-        restart)
-        	restart_server
-        	exit 0
+	start)
+		start_server
+		exit 0
+		;;
+	stop)
+		stop_server
+		exit 0
+		;;
+	restart)
+		restart_server
+		exit 0
+		;;
+	*)
+		print_help
+		;;
 esac
 
