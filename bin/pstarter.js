@@ -1,7 +1,8 @@
 var pstarter = require('../lib/pstarter.js');
 
-pstarter.startMaster(CONFIG_FILE).startWorker(function() {
+pstarter.startMaster({}).startWorker(function() {
 	// run worker code
+	console.log('Hello world!');
 });
 
 /*
