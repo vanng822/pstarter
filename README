@@ -1,4 +1,5 @@
-Usage example at sibox.isgoodness.com
+Usage example at http://sibox.isgoodness.com
+==========
 
 var pstarter = require('./lib/pstarter.js');
 
@@ -33,4 +34,5 @@ Run stop (bellow) and start command will be executed
 
 sudo /etc/init.d/pstarter stop
 Old workers exit directly; parent exits
+
 
