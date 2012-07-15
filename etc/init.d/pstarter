@@ -32,8 +32,8 @@ stop_server() {
 
 start_server() {
 	PID=$(cat $PID_FILE)
-	if [ "$PID" = "" ]; then
-		echo "Server is running or not clean exit"
+	if [ "$PID" != "" ]; then
+		echo "PID exists: server is running or not clean exit"
 	fi
 	echo "Start node server"
     cd $NODE_BIN
@@ -57,6 +57,7 @@ restart_server() {
 
 print_help() {
 	echo "Usage: pstarter start | stop | graceful | restart | force-restart "
+	exit
 }
 
 case "$1" in
