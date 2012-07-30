@@ -3,6 +3,7 @@
   "description"   : "Start http worker process for nodejs",
   "keywords"      : ["process", "start", "init.d", "http"],
   "author"        : "Nguyen Van Nhu",
+  "homepage"      : "https://github.com/vanng822/pstarter",
   "contributors"  : [],
   "dependencies"  : [],
   "repository"    : {"type": "git", "url": "git://github.com/vanng822/pstarter.git"},
