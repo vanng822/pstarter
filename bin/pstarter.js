@@ -1,8 +1,13 @@
 var pstarter = require('../lib/pstarter.js');
-
+console.log('Parent pid: ' + process.pid);
 pstarter.startMaster({}).startWorker(function() {
 	// run worker code
+	var r = parseInt(Math.random() * 10000) + 6000;
 	console.log('Hello world!');
+	console.log('will die in ' + r + ' ms');
+	setTimeout(function() {
+		throw Error('DADA');
+	}, r);
 });
 
 /*

@@ -7,12 +7,20 @@
 # Default-Stop:      0 1 6
 # Short-Description: Start/stop node servers batch script
 ### END INIT INFO
-NODE_BIN=/home/pstarter/bin
+NODE_BIN=./
 SERVER="pstarter.js"
 
-PID_FILE="/var/run/pstarter.pid"
-NODEJS=/usr/bin/nodejs
-NODE_ENV=production
+PID_FILE="./pstarter.pid"
+NODEJS=node
+NODE_ENV=development
+
+which $NODEJS  &>/dev/null
+res=$?
+
+if [ ! $res -eq 0 ]; then
+	echo "Node program could not be found"
+	exit 1
+fi
 
 cleanup_pid() {
 	cat > $PID_FILE &
