@@ -19,7 +19,12 @@
 ## Start with init script on Ubuntu
 
 You need to create a symbolic link /etc/init.d/pstarter to pstarter/etc/init.d/pstarter and make pstarter executable.
-
+You need also specify NODE_BIN, SERVER, PID_FILE, NODEJS and NODE_ENV if your application uses it
+NODE_BIN: folder which contains SERVER
+SERVER: application/server file to execute
+PID_FILE: should be /var/run/youtube.pid in production linux
+NODEJS: executable nodejs 
+NODE_ENV: for your own application; normally development/production
 
 ### Start workers
 
