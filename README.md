@@ -1,6 +1,6 @@
 ## Usage example at http://sibox.isgoodness.com
 
-	var pstarter = require('./lib/pstarter.js');
+	var pstarter = require('pstarter');
 	
 	pstarter.startMaster(__dirname + '/config/configs.js').startWorker(function() {
 		var config = require('./config/configs.js');
