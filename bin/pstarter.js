@@ -3,7 +3,7 @@ pstarter.startMaster({}).startWorker(function() {
 	// run worker code
 	var r = parseInt(Math.random() * 20000) + 10000;
 	console.log('Hello world!');
-	console.log('will die in ' + r + ' ms');
+/*	console.log('will die in ' + r + ' ms');
 
 	setTimeout(function() {
 		if(Math.random() > 0.5) {
@@ -11,7 +11,7 @@ pstarter.startMaster({}).startWorker(function() {
 		} else {
 			process.exit(1);
 		}
-	}, r);
+	}, r);*/
 });
 /*
  // OR

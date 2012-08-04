@@ -46,7 +46,15 @@ start_server() {
 	echo "Start node server"
     cd $NODE_BIN
     $NODEJS $SERVER NODE_ENV=$NODE_ENV PID_FILE=$PID_FILE > /dev/null &2>&1
-    echo "Node server started"
+    #$NODEJS $SERVER NODE_ENV=$NODE_ENV PID_FILE=$PID_FILE
+    res=$?
+    if [ ! "$res" -eq 0 ]; then
+    	echo "Could not start"
+    	exit 1
+    else
+	    echo "Node server started"
+	    exit 0
+	 fi
 }
 
 gracefull_server() {
