@@ -15,16 +15,27 @@
 		app.listen(config.http.port, config.http.ip);
 	});
 
+## Methods
+### startMaster(confFile, masterSettings, callback)
+* `confFile` - configuration file or object. Only PID_FILE and http.numWorkers are used at the moment
+* `masterSettings` - See http://nodejs.org/api/cluster.html#cluster_cluster_setupmaster_settings
+* `callback` - function which will be called when master has forked workers
+
+### startWorker(callback, cleanupCallback)
+* `callback` - will call when worker has attached listener on exit signal
+* `cleanupCallback` - will call when worker receives exit signal. It pass a function for terminating process (or you can choose to exit).
+
+
 
 ## Start with init script on Ubuntu
 
 You need to create a symbolic link /etc/init.d/pstarter to pstarter/etc/init.d/pstarter and make pstarter executable.
-You need also specify NODE_BIN, SERVER, PID_FILE, NODEJS and NODE_ENV if your application uses it
-NODE_BIN: folder which contains SERVER
-SERVER: application/server file to execute
-PID_FILE: should be /var/run/youtube.pid in production linux
-NODEJS: executable nodejs 
-NODE_ENV: for your own application; normally development/production
+You need also specify NODE_BIN, SERVER, PID_FILE, NODEJS and NODE_ENV if your application uses it:
+* `NODE_BIN` folder which contains SERVER
+* `SERVER` application/server file to execute
+* `PID_FILE` should be /var/run/youtube.pid in production linux
+* `NODEJS` executable nodejs 
+* `NODE_ENV` for your own application; normally development/production
 
 ### Start workers
 
