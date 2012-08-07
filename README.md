@@ -15,6 +15,18 @@
 		app.listen(config.http.port, config.http.ip);
 	});
 
+## Or run separate worker file
+### master.js
+	var pstarter = require('pstarter');
+
+	pstarter.startMaster({}, {exec: './worker.js'});
+	
+### worker.js
+	var pstarter = require('pstarter');
+	pstarter.startWorker(function() {
+		console.log('Hello world!');
+	});
+
 ## Methods
 ### startMaster(confFile, masterSettings, callback)
 * `confFile` - configuration file or object. Only PID_FILE and http.numWorkers are used at the moment
