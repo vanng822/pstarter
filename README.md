@@ -73,4 +73,7 @@ You need also specify NODE_BIN, SERVER, PID_FILE, NODEJS and NODE_ENV if your ap
 
 	sudo /etc/init.d/pstarter stop
 	
+## Register init script for reboot in Ubuntu
+
+	sudo update-rc.d pstarter defaults
 
