@@ -11,6 +11,7 @@ NODE_BIN=./
 SERVER="pstarter.js"
 
 PID_FILE="./pstarter.pid"
+AS_USER="www-data"
 NODEJS=node
 NODE_ENV=development
 
@@ -45,7 +46,7 @@ start_server() {
 	fi
 	echo "Start node server"
     cd $NODE_BIN
-    $NODEJS $SERVER NODE_ENV=$NODE_ENV PID_FILE=$PID_FILE > /dev/null &2>&1
+    $NODEJS $SERVER NODE_ENV=$NODE_ENV PID_FILE=$PID_FILE AS_USER=$AS_USER > /dev/null &2>&1
     #$NODEJS $SERVER NODE_ENV=$NODE_ENV PID_FILE=$PID_FILE
     res=$?
     if [ ! "$res" -eq 0 ]; then
