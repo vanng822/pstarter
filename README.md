@@ -2,7 +2,10 @@
 
 	var pstarter = require('pstarter');
 	
-	pstarter.startMaster(__dirname + '/config/configs.js').startWorker(function() {
+	pstarter.startMaster(__dirname + '/config/configs.js', {}, function() {
+		var config = require('./config/configs.js');
+		pstarter.statServer(config.http.statPort, config.http.statHost);
+	}).startWorker(function() {
 		var config = require('./config/configs.js');
 	
 		var express = require('express');
