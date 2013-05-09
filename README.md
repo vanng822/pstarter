@@ -5,6 +5,9 @@
 	pstarter.startMaster(__dirname + '/config/configs.js', {}, function() {
 		var config = require('./config/configs.js');
 		pstarter.statServer(config.http.statPort, config.http.statHost);
+		if (process.env['NODE_ENV'] && process.env['NODE_ENV'] == 'development') {
+			pstarter.startWatch(__dirname, [__dirname +'/node_modules'], ['.js', '.json', '.html', '.css']);
+		}
 	}).startWorker(function() {
 		var config = require('./config/configs.js');
 	
@@ -40,7 +43,10 @@
 * `callback` - will call when worker has attached listener on exit signal
 * `cleanupCallback` - will call when worker receives exit signal. It pass a function for terminating process (or you can choose to exit).
 
-
+### startWatch(root, skipFolders, exts)
+* `root` top folder to watch, all subfolder will also be watched
+* `skipFolders` Array of folders you want to skip, absolute path
+* `exts` Array of extension to listen on changes, including "." 
 
 ## Start with init script on Ubuntu
 
