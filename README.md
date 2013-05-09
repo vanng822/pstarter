@@ -48,6 +48,10 @@
 * `skipFolders` Array of folders you want to skip, absolute path
 * `exts` Array of extension to listen on changes, including "." 
 
+### statServer(port, host)
+* `port` port to run stat server
+* `host` host to run stat server
+
 ## Start with init script on Ubuntu
 
 You need to create a symbolic link /etc/init.d/pstarter to pstarter/etc/init.d/pstarter and make pstarter executable.
