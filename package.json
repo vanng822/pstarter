@@ -7,7 +7,7 @@
   "contributors"  : [],
   "dependencies"  : [],
   "repository"    : {"type": "git", "url": "git://github.com/vanng822/pstarter.git"},
-  "version"       : "0.3.9",
+  "version"       : "0.3.10",
   "engines": {
     "node": ">= 0.8.0"
   }
